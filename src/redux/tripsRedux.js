@@ -26,7 +26,7 @@ export const getFilteredTrips = ({trips, filters}) => {
 
   // Get number value from cost string
   const getValueFromCostString = stringCost => {
-    const number = parseInt(stringCost.split('').filter(chart => !isNaN(chart)).join(''));
+    const number = parseInt(stringCost.split('').filter(char => !isNaN(char)).join(''));
     return number;
   };
 
