@@ -24,6 +24,15 @@ export const getFilteredTrips = ({trips, filters}) => {
 
   // TODO - sort by cost descending (most expensive goes first)
 
+  // Get number value from cost string
+  const getValueFromCostString = stringCost => {
+    const number = parseInt(stringCost.split('').filter(chart => !isNaN(chart)).join(''));
+    return number;
+  };
+
+  // Sort cost trips in order descending
+  output.sort((priceA, priceB) => getValueFromCostString(priceB.cost) - getValueFromCostString(priceA.cost));
+
   return output;
 };
 
