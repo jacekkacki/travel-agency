@@ -3,11 +3,8 @@ import styles from './HappyHourAd.scss';
 import PropTypes from 'prop-types';
 
 class HappyHourAd extends React.Component {
-  constructor(){
-    super();
-    
-    /* run this.forceUpdate() every second */
-    setInterval(() => this.forceUpdate(), 1000);
+  constructor(props){
+    super(props);
   }
 
   static propTypes = {
@@ -19,6 +16,16 @@ class HappyHourAd extends React.Component {
     title: 'Happy Hour',
     promoDescription: 'Its your time! Take advantage of Happy Hour! All offers 20% off!',
   };
+
+  componentDidMount(){
+    /* run this.forceUpdate() every second */
+    this.timerID = setInterval(() => 
+      this.forceUpdate(), 1000);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
 
   getCountdownTime(){
     const currentTime = new Date();
