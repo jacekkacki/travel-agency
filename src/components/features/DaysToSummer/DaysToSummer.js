@@ -12,11 +12,11 @@ class DaysToSummer extends React.Component {
     let days = Math.floor(howManyDays / (1000 * 60 * 60 * 24));
 
     if (days > 1){
-      return days +' days to summer!';
+      return days +' days to summer';
     } else if (days === 1){
       return '1 day to summer!';
     } else if (startSummerDate <= currentDate && currentDate <= endSummerDate){
-      return days = null;
+      return;
     } else {
       const nextStartSummer = new Date(Date.UTC(currentDate.getUTCFullYear() + 1, 5, 21, 0, 0, 0, 0));
       days = Math.floor((nextStartSummer.getTime() - currentDate.getTime())/ (1000 * 60 * 60 * 24));
